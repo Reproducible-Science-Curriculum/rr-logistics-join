@@ -1,0 +1,18 @@
+language: c
+
+script:
+    ## Weirdly using source here to get R to print out what is running
+    ## as it goes, rather than running Rscript directly on the file.
+    - Rscript -e 'source(".ci_tests.R", echo=TRUE)'
+
+before_install:
+    - mv .description DESCRIPTION
+    - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
+    - chmod 755 ./travis-tool.sh
+    - ./travis-tool.sh bootstrap
+
+install:
+    - ./travis-tool.sh install_deps
+
+after_failure:
+    - ./travis-tool.sh dump_logs

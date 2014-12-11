@@ -1,0 +1,20 @@
+init:
+  ps: |
+        $ErrorActionPreference = "Stop"
+        Invoke-WebRequest http://raw.github.com/krlmlr/r-appveyor/master/scripts/appveyor-tool.ps1 -OutFile "..\appveyor-tool.ps1"
+        Import-Module '..\appveyor-tool.ps1'
+
+install:
+  ps: Bootstrap
+
+build_script:
+  - mv .description DESCRIPTION
+  - travis-tool.sh install_deps
+
+test_script:
+    ## Weirdly using source here to get R to print out what is running
+    ## as it goes, rather than running Rscript directly on the file.
+    - Rscript -e 'source(".ci_tests.R", echo=TRUE)'
+
+on_failure:
+  - travis-tool.sh dump_logs
