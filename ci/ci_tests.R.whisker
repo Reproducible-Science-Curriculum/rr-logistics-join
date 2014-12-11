@@ -1,0 +1,5 @@
+## -*-R-*-
+lessons <- c({{{lessons}}})
+for (path in lessons) {
+  source(file.path(path, ".ci_tests.R"), chdir=TRUE, echo=TRUE)
+}

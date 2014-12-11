@@ -31,8 +31,28 @@ for (i in lessons) {
   unlink(sprintf("%s/%s/.git", dest, i), recursive=TRUE)
 }
 
+## Continuous integration
+dat <- do.call("rbind",
+               lapply(file.path(dest, lessons, ".description"), read.dcf))
+depends <- paste(unique(unlist(strsplit(dat[,"Depends"], ",\\s*"))),
+                 collapse=", ")
+writeLines(paste("Depends: ", depends),
+           file.path(dest, ".description"))
+file.copy("ci/appveyor.yml", dest)
+file.copy("ci/.travis.yml", dest)
+
+## Now, write an R file that will run each test.
+library(whisker)
+lessons_str <- paste(sprintf('"%s"', lessons), collapse=", ")
+writeLines(whisker.render(readLines("ci/ci_tests.R.whisker"),
+                          list(lessons=lessons_str)),
+           file.path(dest, ".ci_tests.R"))
+
+## Add to git
 system(sprintf("cd %s/www; git add .; git commit -m 'merge repos'", dest))
 system(sprintf("cd %s; git add .; git commit -m 'merge repos'", dest))
+
+## Create repo on github
 
 ## ## Install cscheid/rgithub
 ## ## devtools::install_github("cscheid/rgithub")
