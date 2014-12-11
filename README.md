@@ -63,3 +63,14 @@ Instructors should
 - either push back changes to the main workshop repository or submit pull requests
 (more information needed on how to do this)
 - once changes are made, check to see if TravisCI still passes
+
+## Testing
+
+We use [travis-ci](http://travis-ci.org) and [appveyor](http://appveyor.com) to test the lessons.  The idea is that if your lesson has executable code then this will be run on each commit so that you find out if changes have broken anything.
+
+There are several files involved:
+* `.travis.yml` and `appveyor.yml` configuration file for travis and appveyor.  Leave this alone, as this is assumed the same across all lessons.
+* `.description`: a file like `DESCRIPTION` (dcf format) that lists package dependencies.  Other fields are ignored, but we may hijack these later.
+* `.ci_check.R`: a script that will be run to check that the output from running the lesson is OK.  Things to check for include - knitr documents are runnable, running a script produces expected outputs, data sets are actual subsets of other data sets.
+
+For each lesson, tests will be run every time the repo is pushed to github. When lessons are merged, the tests will be merged and all tests will be run.
