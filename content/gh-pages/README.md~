@@ -1,0 +1,17 @@
+## README
+
+### Workshop materials for a Reproducible Research Workshop
+
+#### Intructor materials
+Materials for instructors to use are in the **gh-pages** branch  
+These include  
+- instructor notes
+- slides
+- exercises
+- handout files (if included)
+
+#### Student materials
+Materials that students will download and use are in the **master* branch  
+These include
+- data: any data required for the lesson
+- R files or any scripts the students should have
