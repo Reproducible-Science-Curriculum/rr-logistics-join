@@ -5,7 +5,7 @@
 In the Reprodubile Research github organization, each lesson is its own module.
 
 Each lesson module repo has two branches, a gh-pages branch with materials
-that the instructor will use and a master branch of materials that the 
+that the instructor will use and a master branch of materials that the
 learners will use.
 
 Repository structure
@@ -24,22 +24,26 @@ master branch
 Learner materials
 - data directory with whatever directory structure is required
 - files used in the module, like R files
-- (for administration use only) the Travis CI files for testing 
+- (for administration use only) the Travis CI files for testing
 
-R module requirements
-R files should be in Rmd
-A R project file should be included
-(more details needed)
+R module requirements  
+R files should be in Rmd  
+A R project file should be included  
+(more details needed)  
+
+Chart of repository structure for each lesson
+
+![Chart of Repository structure for each lesson](rhack_lesson_repo.png)
 
 There are different people who will interact with this repository
 
-- Master Coordinator: the Master Coordinator is the person who will 
+- Master Coordinator: the Master Coordinator is the person who will
 set up the initial repository for each workshop and does this for every workshop.
 - Instructors: the Instructors are the people who will teach a given workshop
 
 When a workshop is set up the Master Coordinator will run a script that will
 
-- take the all the individual lesson modules that are supposed to be in 
+- take the all the individual lesson modules that are supposed to be in
 the workshop and create one new repository for that workshop with all the
 master branches from each lesson repo in one master branch and all
 the gh-pages branches from each lesson repo in one gh-pages branch. This
@@ -50,14 +54,14 @@ Things that will be changed:
   - dates
   - instructors
   - room location
-  - accessibility 
+  - accessibility
   - any additional notes, i.e. bring your own lunch
 
 - edit the TravisCI files to be appropriate for the given workshop
 
 Instructors will now have access to this repository
 
-Instructors should 
+Instructors should
 - fork the workshop repository
 - make any changes to the materials in their repository
 - either push back changes to the main workshop repository or submit pull requests
