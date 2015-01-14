@@ -31,9 +31,9 @@ R files should be in Rmd
 A R project file should be included  
 (more details needed)  
 
-Chart of repository structure for each lesson
+**Chart of repository structure for each lesson**
 
-![Chart of Repository structure for each lesson](rhack_lesson_repo.png)
+![Chart of Repository structure for each lesson](rrhack_lesson_repo.png)
 
 There are different people who will interact with this repository
 
@@ -58,6 +58,12 @@ Things that will be changed:
   - any additional notes, i.e. bring your own lunch
 
 - edit the TravisCI files to be appropriate for the given workshop
+
+**Chart of how multiple repositories will be merged in to one
+workshop repository.**
+
+![Workshop repository composition](rrhack_github.png)
+
 
 Instructors will now have access to this repository
 
